@@ -1,0 +1,41 @@
+{
+  "name": "anilist-recommendation",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Jake Andrews",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.1145.0",
+    "axios": "^0.27.2",
+    "babel-jest": "^26.6.0",
+    "babel-loader": "^8.1.0",
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "dotenv": "^15.0.0",
+    "eslint": "^7.11.0",
+    "express": "^4.17.2",
+    "express-async-handler": "^1.2.0",
+    "fs": "^0.0.1-security",
+    "jest": "^26.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mock-aws-s3": "^4.0.2",
+    "mongoose": "^6.1.9",
+    "path": "^0.12.7",
+    "python-shell": "^3.0.1",
+    "react-redux": "^8.0.2",
+    "react-scripts": "^5.0.1",
+    "redux": "^4.2.0",
+    "webpack": "^4.44.2",
+    "webpack-dev-server": "^3.11.1"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
