@@ -45,7 +45,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Product Name Screen Shot][bot-screenshot]
+![Product Name Screen Shot][bot-screenshot6]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -108,10 +108,12 @@
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-![Product Name Screen Shot][bot-screenshot]
 ![Product Name Screen Shot][bot-screenshot1]
 ![Product Name Screen Shot][bot-screenshot2]
 ![Product Name Screen Shot][bot-screenshot3]
+![Product Name Screen Shot][bot-screenshot4]
+![Product Name Screen Shot][bot-screenshot5]
+![Product Name Screen Shot][bot-screenshot6]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -131,7 +133,9 @@
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[bot-screenshot]: images/basic_usage.PNG?raw=true
 [bot-screenshot1]: images/basic_usage1.PNG?raw=true
 [bot-screenshot2]: images/basic_usage2.PNG?raw=true
 [bot-screenshot3]: images/basic_usage3.PNG?raw=true
+[bot-screenshot4]: images/basic_usage4.PNG?raw=true
+[bot-screenshot5]: images/basic_usage5.PNG?raw=true
+[bot-screenshot6]: images/basic_usage6.PNG?raw=true
