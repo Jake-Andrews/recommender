@@ -1,6 +1,7 @@
 import { FaTimes } from 'react-icons/fa'
 import { useDispatch } from 'react-redux'
 import { deleteGoal } from '../features/goals/goalSlice'
+import DropdownButtonRating from './DropdownButton'
 
 const Tasks = ({ tasks }) => {
   const dispatch = useDispatch()
@@ -23,10 +24,10 @@ const Tasks = ({ tasks }) => {
       </thead>
       <tbody>
         {tasks[0].anime.map((task) => (
-        <tr key={task.title}>
+        <tr key={task.coverImage}>
           <td className="data-image"><img src={task.coverImage} alt='Anime Cover'/></td>
           <td className="data-title">{task.title}</td>
-          <td className="">{task.score}</td>
+          <td className="data-rating"><DropdownButtonRating score={task.score} task={task} tasks={tasks[0]}></DropdownButtonRating></td>
           <td className="">{task.episodes}</td>
           <td className="data-genres">{task.genres}</td>
           <td className="">{task.seasonYear}</td>

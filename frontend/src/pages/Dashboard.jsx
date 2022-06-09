@@ -7,7 +7,7 @@ import { getGoals, reset } from '../features/goals/goalSlice'
 import Tasks from '../components/Tasks'
 import TasksNoId from '../components/TasksNoId'
 import { createRecommendation, getRecommendations, resetRecommendations } from '../features/recommendations/recommendationSlice'
-//import Task from '../components/Task'
+import Button from 'react-bootstrap/Button'
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -22,7 +22,6 @@ function Dashboard() {
   )
 
   const onClick = () => {
-    console.log('Submitting')
     dispatch(createRecommendation({ goals }))
   }
 
@@ -37,10 +36,9 @@ function Dashboard() {
     if (!user) {
       navigate('/login')
     }
-    //console.log(goals)
+
     dispatch(getGoals())
     dispatch(getRecommendations())
-    //console.log(goals)
 
     return () => {
       dispatch(reset())
@@ -58,21 +56,20 @@ function Dashboard() {
         <h1>Welcome {user && user.name}</h1>
         <p>Anime Recommender</p>
       </section>
-      <button className='btn btn-block' type='submit' onClick={onClick}>
+      <Button className='btn btn-block' type='submit' onClick={onClick}>
               Generate Recommendations
-      </button>
-      
+      </Button>
       <section className="rec-content">
         {recommendations.length > 0 ? (
             <TasksNoId tasks={recommendations}/>
           ) : (
-            <h3>You genereated any recommendations yet!</h3>
+            <h3>You haven't genereated any recommendations yet!</h3>
           )}
         </section>
       <GoalForm />
       <section className='anime-content'>
         {goals.length > 0 ? (
-          <Tasks tasks={goals.slice(0,10)}/>
+          <Tasks tasks={goals}/>
         ) : (
           <h3>You have not loaded any shows yet!</h3>
         )}

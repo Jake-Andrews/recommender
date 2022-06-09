@@ -1,14 +1,18 @@
 const asyncHandler = require('express-async-handler')
-
 const Goal = require('../models/goalModel')
 const AnimeListModel = require('../models/animeListModel')
 const User = require('../models/userModel')
+const { update } = require('../models/goalModel')
 
 // @desc    Get goals
 // @route   GET /api/goals
 // @access  Private
 const getGoals = asyncHandler(async (req, res) => {
   const goals = await AnimeListModel.find({ user: req.user.id })
+  if (!goals) {
+    res.status(400)
+    throw new Error('Goal not found')
+  }
   //console.log(goals)
   res.status(200).json(goals)
 })
@@ -31,9 +35,10 @@ const setGoal = asyncHandler(async (req, res) => {
 })
 
 // @desc    Update goal
-// @route   PUT /api/goals/:id
+// @route   Patch /api/goals/:id
 // @access  Private
 const updateGoal = asyncHandler(async (req, res) => {
+  console.log('updateGoal')
   const goal = await AnimeListModel.findById(req.params.id)
 
   if (!goal) {
@@ -52,12 +57,19 @@ const updateGoal = asyncHandler(async (req, res) => {
     res.status(401)
     throw new Error('User not authorized')
   }
-
-  const updatedGoal = await AnimeListModel.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
+  //console.log(req.params._id)
+  //console.log(req.body.id)
+  const updatedGoal = await AnimeListModel.findOneAndUpdate(
+  { _id:req.params.id }, 
+  {$set: {'anime.$[el].score':req.body.score}}, 
+  {
+    arrayFilters: [{ 'el.id':req.body.id }],
+    new:true
   })
-
+  //updatedGoal is the previous goal, need to change find new goal
+  //const updatedGoalDone = await AnimeListModel.findById(req.params.id)
   res.status(200).json(updatedGoal)
+  //console.log(updatedGoal)
 })
 
 // @desc    Delete goal
