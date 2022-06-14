@@ -152,6 +152,13 @@ h3 {
 .dropdown-ratings {
   color: #000000;
 }
+.data-year {
+  font-size: 10px !important;
+}
+p {
+  font-size: 20px !important;
+  font-family: Verdana, Arial;
+}
 Button {
   color: black;
   font-size: large;
